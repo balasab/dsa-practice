@@ -1,0 +1,15 @@
+const nonOverLappingIntervals = (intervals) => {
+    intervals.sort((a, b) => a[1] - b[1]);
+
+    let count = 0;
+    let end = -Infinity;
+
+    for (let [s, e] of intervals) {
+        if (s >= end) {
+            end = s;
+        } else {
+            count++;
+        }
+    }
+    return count;
+}
